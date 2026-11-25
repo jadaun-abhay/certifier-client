@@ -2,7 +2,14 @@ import { Outlet, useLoaderData, useNavigate, Link, useLocation } from "react-rou
 import { authMiddleware } from "../../features/auth/middleware/auth.middleware";
 import { userAuthContext } from "../../shared/contexts/user.context";
 import { logout } from "../../features/auth/api/auth.api";
-import { FolderIcon, TrashIcon, LogoutIcon } from "../../shared/components/icons";
+import {
+    FolderIcon,
+    TrashIcon,
+    LogoutIcon,
+    ImageIcon,
+    ZapIcon,
+    TypeIcon,
+} from "../../shared/components/icons";
 
 // Only routes nested under this layout require login - keeping this off
 // root.jsx avoids gating /login and /signup themselves, which would
@@ -15,8 +22,11 @@ export const clientMiddleware = [authMiddleware];
 export const clientLoader = ({ context }) => context.get(userAuthContext);
 
 const navItems = [
-    { to: "/", label: "My Drive", icon: FolderIcon },
+    { to: "/", label: "My Drive", icon: FolderIcon, exact: true },
     { to: "/trash", label: "Trash", icon: TrashIcon },
+    { to: "/templates", label: "Templates", icon: ImageIcon },
+    { to: "/jobs", label: "Jobs", icon: ZapIcon },
+    { to: "/fonts", label: "Fonts", icon: TypeIcon },
 ];
 
 const ProtectedLayout = () => {
@@ -35,8 +45,11 @@ const ProtectedLayout = () => {
                 <div>
                     <p className="mb-6 px-2 text-xl font-semibold">EduVverse Drive</p>
                     <nav className="flex flex-col gap-1">
-                        {navItems.map(({ to, label, icon: Icon }) => {
-                            const active = location.pathname === to;
+                        {navItems.map(({ to, label, icon: Icon, exact }) => {
+                            const active = exact
+                                ? location.pathname === to ||
+                                  location.pathname.startsWith("/folder/")
+                                : location.pathname.startsWith(to);
                             return (
                                 <Link
                                     key={to}

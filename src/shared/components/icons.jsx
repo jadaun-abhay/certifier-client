@@ -101,6 +101,53 @@ export const LogoutIcon = (props) => (
     </svg>
 );
 
+export const ImageIcon = (props) => (
+    <svg {...base} {...props}>
+        <rect x="3" y="4" width="18" height="16" rx="2" />
+        <circle cx="9" cy="10" r="1.6" fill="currentColor" stroke="none" />
+        <path d="m4 17 5-5 4 4 3-3 4 4" />
+    </svg>
+);
+
+export const ZapIcon = (props) => (
+    <svg {...base} {...props}>
+        <path d="M13 3 5 13h6l-1 8 8-10h-6l1-8Z" />
+    </svg>
+);
+
+export const TypeIcon = (props) => (
+    <svg {...base} {...props}>
+        <path d="M5 6h14M12 6v12M9 18h6" />
+    </svg>
+);
+
+export const PlayIcon = (props) => (
+    <svg {...base} {...props}>
+        <path d="M7 4.5v15l12-7.5Z" />
+    </svg>
+);
+
+export const CheckCircleIcon = (props) => (
+    <svg {...base} {...props}>
+        <circle cx="12" cy="12" r="9" />
+        <path d="m8.5 12.5 2.3 2.3 4.7-4.8" />
+    </svg>
+);
+
+export const XCircleIcon = (props) => (
+    <svg {...base} {...props}>
+        <circle cx="12" cy="12" r="9" />
+        <path d="m9 9 6 6m0-6-6 6" />
+    </svg>
+);
+
+export const ClockIcon = (props) => (
+    <svg {...base} {...props}>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3.5 2" />
+    </svg>
+);
+
 export const RestoreIcon = (props) => (
     <svg {...base} {...props}>
         <path d="M3 12a9 9 0 1 0 3-6.7" />
