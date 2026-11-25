@@ -1,5 +1,7 @@
 import { ScrollRestoration, Scripts, Outlet, Links } from "react-router";
+import { Toaster } from "react-hot-toast";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const links = () => [{ rel: "icon", href: "/favicon.ico" }];
 
 export const Layout = ({ children }) => {
@@ -18,6 +20,7 @@ export const Layout = ({ children }) => {
                 {children}
                 <ScrollRestoration />
                 <Scripts />
+                <Toaster />
             </body>
         </html>
     );
