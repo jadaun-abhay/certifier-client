@@ -1,7 +1,7 @@
-import { getUserAuthenticatedStatus } from "../api/auth.api";
+import { authenticateUser } from "../api/auth.api";
 
-const useAuth = async () => {
-    const authStatus = await getUserAuthenticatedStatus();
+const useAuth = async ({ credentials }) => {
+    const authStatus = await authenticateUser({ credentials });
     return authStatus;
 };
 

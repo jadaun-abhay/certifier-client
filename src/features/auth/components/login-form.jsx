@@ -1,3 +1,5 @@
+import { Form, Link } from "react-router";
+
 export default function LoginForm() {
     return (
         <div className="sm:w-1/2 p-2 flex flex-col justify-center items-center text-white">
@@ -5,15 +7,17 @@ export default function LoginForm() {
             <p className="text-center">
                 If you are having an account, Please Log in!
             </p>
-            <form action="" className="mt-10 flex flex-col justify-center">
+            <Form method="post" className="mt-10 flex flex-col justify-center">
                 <input
                     type="email"
+                    name="email"
                     placeholder="abc@example.com"
                     required
                     className="p-2 bg-[#3c364c] rounded-xl mb-4 focus:outline-none"
                 />
                 <input
                     type="password"
+                    name="password"
                     placeholder="*****"
                     required
                     className="p-2 bg-[#3c364c] rounded-xl mb-4 focus:outline-none"
@@ -21,7 +25,13 @@ export default function LoginForm() {
                 <button className="block bg-[#6d54b5] p-2 rounded-xl hover:bg-[#a47ce5] transition active:scale-90">
                     Sign in
                 </button>
-            </form>
+            </Form>
+            <p className="mt-6 text-sm text-gray-300">
+                Don&apos;t have an account?{" "}
+                <Link to="/signup" className="text-[#a47ce5] hover:underline">
+                    Sign up
+                </Link>
+            </p>
         </div>
     );
 }
