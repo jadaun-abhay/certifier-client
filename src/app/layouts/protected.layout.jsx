@@ -1,4 +1,10 @@
-import { Outlet, useLoaderData, useNavigate, Link, useLocation } from "react-router";
+import {
+    Outlet,
+    useLoaderData,
+    useNavigate,
+    Link,
+    useLocation,
+} from "react-router";
 import { authMiddleware } from "../../features/auth/middleware/auth.middleware";
 import { userAuthContext } from "../../shared/contexts/user.context";
 import { logout } from "../../features/auth/api/auth.api";
@@ -43,7 +49,9 @@ const ProtectedLayout = () => {
         <div className="flex h-full bg-[#1f1b29] text-white">
             <aside className="flex w-56 shrink-0 flex-col justify-between bg-[#2c2638] p-4">
                 <div>
-                    <p className="mb-6 px-2 text-xl font-semibold">EduVverse Drive</p>
+                    <p className="mb-6 px-2 text-xl font-semibold">
+                        React Drive
+                    </p>
                     <nav className="flex flex-col gap-1">
                         {navItems.map(({ to, label, icon: Icon, exact }) => {
                             const active = exact
@@ -72,7 +80,9 @@ const ProtectedLayout = () => {
                     <p className="truncate px-2 text-sm font-medium">
                         {user?.first_name || user?.email}
                     </p>
-                    <p className="truncate px-2 text-xs text-gray-400">{user?.email}</p>
+                    <p className="truncate px-2 text-xs text-gray-400">
+                        {user?.email}
+                    </p>
                     <button
                         type="button"
                         onClick={handleLogout}
